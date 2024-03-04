@@ -7,14 +7,16 @@ import Title from './components/Titile'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPokemonsWithDetails, setLoading, setPokemons } from './actions';
 import BeatLoader from "react-spinners/BeatLoader";
+import { fromJS, setIn, get, getIn} from "immutable";
+
 
 
 
 
 function App() {
 
-  const loading = useSelector((state) => state.loading)
-  const pokemons = useSelector((state) => state.pokemons)
+  const loading = useSelector((state) => state.get('loading'))
+  const pokemons = useSelector((state) => state.get('pokemons')).toJS();
   const dispatch = useDispatch()
 
 
